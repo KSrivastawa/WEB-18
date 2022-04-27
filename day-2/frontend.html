@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet"  href="style.css" />
+</head>
+<body>
+   
+    <h1>Frontend</h1>
+    <div id="container"></div>
+
+
+</body>
+</html>
+
+<script>
+
+    var investorsArr= JSON.parse(localStorage.getItem("investorsData"))||[];
+//console.log(investorsArr)
+        investorsArr.forEach(function(el) {
+
+        var box= document.createElement("div");
+
+        var profile_img= document.createElement("img");
+        profile_img.setAttribute("src", el.investorImg)
+
+        var profile_name= document.createElement("h3");
+        profile_name.innerText = el.investorName;
+
+        var profile_role= document.createElement("p");
+        profile_role.innerText = el.investorPosition;
+
+        var profile_logo= document.createElement("img");
+        profile_logo.setAttribute("src", el.investorLogo)
+
+        box.append(profile_img,profile_name,profile_role,profile_logo)
+
+        document.querySelector("#container").append(box);
+        
+    });
+
+</script>
