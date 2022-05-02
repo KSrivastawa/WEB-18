@@ -1,0 +1,25 @@
+
+#navbar {
+    display: flex;;
+    height: auto;
+    width: 90%;
+    align-items: center;
+    margin: auto;
+    margin-top: 20px;
+    background-color: rgb(27, 36, 51);
+    padding: 7px 10px 7px 10px;
+    color: white;
+    border-radius: 20px;
+}
+#navbar>div {
+    display: flex;;
+    width: auto;
+    justify-content: space-between;
+    margin-left: auto;
+    gap: 20px;
+    
+}
+h3>a{
+    color: white;
+}
+  

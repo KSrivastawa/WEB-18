@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="signin.css" />
+</head>
+<body>
+    <h1>SignIn Below</h1>
+    <form>
+        <input id ="useremail" placeholder="user email" type="text">
+        <input id ="password" placeholder="password" >
+        <input type="submit"  value="submit">
+    </form>
+</body>
+</html>
+
+<script>
+
+      var form= document.querySelector("form");
+
+      var userData2= JSON.parse(localStorage.getItem("userData"));
+
+      form.addEventListener("submit", function(event){
+        event.preventDefault();
+        var Data={
+            email: form.useremail.value,
+            password: form.password.value,
+        }
+
+        if(userData2===null){
+            alert("Please create an account");
+        }
+        else if(userData2.email==Data.email && userData2.password==Data.password){
+            alert("SignIn Successful");
+            localStorage.setItem("nextStep", JSON.stringify(userData2)) 
+            window.location.href="navbar.html";
+        }
+        else
+        {
+            alert("User Doesn't Exist");
+        } 
+
+    });
+
+</script>

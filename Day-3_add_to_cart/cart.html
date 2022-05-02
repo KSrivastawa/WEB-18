@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="cart.css" />
+</head>
+<body>
+    <div id="navbar">
+        <h3>Reebok</h3>
+    
+        <div id="header">
+            <h3><a href="men.html">Mens</a> </h3>
+            <h3><a href="women.html">Womens</a> </h3>
+            <h3>User Profile</h3>
+            <h3><a href="cart.html">Cart</a> </h3>
+        </div>
+    </div>
+
+    <h2>Welcome to Cart</h2>
+    <p>[Get 30% dicount by apply Promo Code: "masai30"] <input type="text" ><button>Apply Promo</button></p> 
+    
+
+    <div id="allData"></div>
+
+</body>
+</html>
+
+<script>
+
+    var cartData = JSON.parse(localStorage.getItem("masai-cart")) || [];
+
+    function display(data){
+      allData.innerHTML= null;
+
+    data.forEach(function(elem) {
+      var card = document.createElement("div")
+
+      var img = document.createElement("img")
+      img.src=elem.image_url
+
+      var name = document.createElement("h3")
+      name.textContent=elem.name
+
+      var price = document.createElement("p")
+      price.textContent=elem.price
+
+      var str = document.createElement("s")
+      str.textContent=elem.strikedoffprice
+
+      var button=document.createElement("button")
+      button.innerText="Delete"
+
+      button.addEventListener("click", function(){
+            Delete(elem.price)
+      })
+
+      card.append(img,name,price,str,button);
+
+      allData.append(card);
+
+    });
+
+  }
+  display(cartData); 
+
+  function Delete(id){
+    cartData=cartData.filter(function(elem){
+        return elem.price != id;
+    })
+    display(cartData);
+    localStorage.setItem("masai-cart",JSON.stringify(cartData));
+  }
+
+
+</script>

@@ -1,0 +1,22 @@
+form{
+    border-radius: 20px;
+    display:grid;
+    width:20%;
+    margin:auto;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    grid-template-rows: 40px 40px 40px 35px;
+    row-gap: 20px;
+    height: 100px;
+    margin-top: 100px;
+}
+
+h1{
+    color: white;
+    background-color: rgb(191, 0, 255);
+    width: 15%;
+    text-align: center;
+    border-radius: 10px;
+    margin: auto ;
+    margin-top: 20px;
+    
+}
