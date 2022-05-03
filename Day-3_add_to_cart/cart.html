@@ -55,6 +55,8 @@
 
       button.addEventListener("click", function(){
             Delete(elem.price)
+
+
       })
 
       card.append(img,name,price,str,button);
@@ -64,7 +66,8 @@
     });
 
   }
-  display(cartData); 
+  display(cartData);
+
 
   function Delete(id){
     cartData=cartData.filter(function(elem){
